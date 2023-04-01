@@ -9,7 +9,11 @@ Ispirato ai progetti Top Secret della CIA rivelati da Wikileaks, in particolar m
 - Progetto Elsa
 - Progetto OutlawCountry
 - Progetto Extending
-Il progetto d0raSpy, una volta installato sul router vittima, consente di
+
+Il progetto d0raSpy, una volta installato sul router vittima, consente di:
+| Identificare tutte le reti circostanti |  :x:  | :heavy_check_mark: |
+
+
 - Identificare tutte le reti circostanti
 - Ottenere l'IP pubblico
 - Identificare tutti i dispositivi collegati alla rete 
@@ -24,7 +28,3 @@ Il progetto d0raSpy, una volta installato sul router vittima, consente di
 - Effettuare il dump delle password
 - Creare account root secondari
 - Abilitare il port forwarding 
-
-| Unchecked | Checked |
-| --------- | ------- |
-|  :x:  | :heavy_check_mark: |
