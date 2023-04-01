@@ -10,7 +10,7 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 - Project OutlawCountry
 - Project Extending
 
-The d0raSpy project, once installed on the victim router, allows you to: 
+d0raSpy, once installed on the victim router, allows you to: 
 
 | Features | |
 | --------- | --------- |
