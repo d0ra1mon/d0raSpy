@@ -20,6 +20,7 @@ d0raSpy, once installed on the victim router, allows you to:
 | Find all devices | :heavy_check_mark: |
 | Intercept all traffic | :heavy_check_mark: |
 | Send report to attacker| :heavy_check_mark: |
+| Get system info | :heavy_check_mark: |
 | Exploit vulnerable devices | :x: |
 | Find all Networks | :x: |
 | DNS poisoning | :x: |
@@ -30,6 +31,5 @@ d0raSpy, once installed on the victim router, allows you to:
 | Dump Passwords | :x: |
 | Creating a secondary root account | :x: |
 | Remote shell | :x: |
-| Get all information about router | :x: |
 | Enabling port forwarding | :x: |
 | Capture and send all sensitive data (email, file, etc..) | :x: |
