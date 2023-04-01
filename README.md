@@ -14,10 +14,9 @@ Il progetto d0raSpy, una volta installato sul router vittima, consente di:
 
 | Features | |
 | --------- | --------- |
-| Find all Networks | :heavy_check_mark: |
+| Get Public IP | :heavy_check_mark: |
+| Find all Networks | :x: |
 
-
-- Identificare tutte le reti circostanti
 - Ottenere l'IP pubblico
 - Identificare tutti i dispositivi collegati alla rete 
 - Sfruttare e ottenere accesso completo ai dispositivi vulnerabili
