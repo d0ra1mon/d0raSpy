@@ -24,8 +24,7 @@ d0raSpy, once installed on the victim router, allows you to:
 | Exploit vulnerable devices | :x: |
 | Find all Networks | :x: |
 | DNS poisoning | :x: |
-| Manipulate routing table | :x: |
-| DOS attacks on the network itself | :x: |
+| Black listing specific device | :x: |
 | Deny service to certain clients | :x: |
 | Self-removal | :x: |
 | Dump Passwords | :x: |
