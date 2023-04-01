@@ -28,3 +28,8 @@ d0raSpy, once installed on the victim router, allows you to:
 | Dump Passwords | :x: |
 | Creating a secondary root account | :x: |
 | Enabling port forwarding | :x: |
+| Remote shell | :x: |
+| Enabling port forwarding | :x: |
+| Get all information about router | :x: |
+| Enabling port forwarding | :x: |
+| Capture and send all sensitive data (email, file, etc..) | :x: |
