@@ -26,10 +26,10 @@ d0raSpy, once installed on the victim router, allows you to:
 | DNS poisoning | :x: |
 | Manipulate routing table | :x: |
 | DOS attacks on the network itself | :x: |
-| Denying service to certain clients | :x: |
+| Deny service to certain clients | :x: |
 | Self-removal | :x: |
 | Dump Passwords | :x: |
-| Creating a secondary root account | :x: |
+| Create a secondary root account | :x: |
 | Remote shell | :x: |
-| Enabling port forwarding | :x: |
+| Enable port forwarding | :x: |
 | Capture and send all sensitive data (email, file, etc..) | :x: |
