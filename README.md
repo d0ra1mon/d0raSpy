@@ -14,7 +14,7 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 
 d0raSpy, once installed on the victim router, allows you to: 
 
-| Features |
+| Features | |
 | --------- | --------- |
 | Get Public IP | :heavy_check_mark: |
 | Find all devices | :heavy_check_mark: |
