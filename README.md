@@ -12,7 +12,7 @@ Ispirato ai progetti Top Secret della CIA rivelati da Wikileaks, in particolar m
 
 Il progetto d0raSpy, una volta installato sul router vittima, consente di: 
 
-| Features |
+| Features | --------- |
 | --------- | --------- |
 | Find all Networks | :heavy_check_mark: |
 
