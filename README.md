@@ -5,28 +5,26 @@
 </p>
 
 ## Wath is?
-Ispirato ai progetti Top Secret della CIA rivelati da Wikileaks, in particolar modo dal progetto:
-- Progetto Elsa
-- Progetto OutlawCountry
-- Progetto Extending
+Inspired by the CIA's Top Secret projects revealed by Wikileaks:
+- Project Elsa
+- Project OutlawCountry
+- Project Extending
 
-Il progetto d0raSpy, una volta installato sul router vittima, consente di: 
+The d0raSpy project, once installed on the victim router, allows you to: 
 
 | Features | |
 | --------- | --------- |
 | Get Public IP | :heavy_check_mark: |
+| Find all devices | :heavy_check_mark: |
+| Intercept all traffic | :heavy_check_mark: |
+| Send report to attacker| :heavy_check_mark: |
+| Exploit vulnerable devices | :x: |
 | Find all Networks | :x: |
-
-- Ottenere l'IP pubblico
-- Identificare tutti i dispositivi collegati alla rete 
-- Sfruttare e ottenere accesso completo ai dispositivi vulnerabili
-- Intercettare tutto il traffico 
-- Effetturare il DNS poisoning
-- Alterare la tabella di routing
-- Inviare report completi della rete compromessa 
-- Effettuare attacchi DOS verso la rete stessa
-- Negare il servizio a determinati client
-- Autorimozione
-- Effettuare il dump delle password
-- Creare account root secondari
-- Abilitare il port forwarding 
+| DNS poisoning | :x: |
+| Manipulate routing table | :x: |
+| DOS attacks on the network itself | :x: |
+| Denying service to certain clients | :x: |
+| Self-removal | :x: |
+| Dump Passwords | :x: |
+| Creating a secondary root account | :x: |
+| Enabling port forwarding | :x: |
