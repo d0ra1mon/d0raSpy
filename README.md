@@ -41,5 +41,5 @@ https://www.ixonae.com/configure-a-raspberry-pi-as-a-secure-wifi-access-point-wi
 
 ## How the scripts works
 
-- The script "spy.sh" scan,get public ip, intercept traffic of the network, and send the report via Telegram 
+- The script "spy.sh" scan,get public ip, intercept traffic of the network (max 200 Mb), and send the report via Telegram 
 - The script "scan.sh" scan and get public ip, send the report via Telegram and make a autouinstall
