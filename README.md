@@ -32,3 +32,9 @@ d0raSpy, once installed on the victim router, allows you to:
 | Remote shell | :x: |
 | Enable port forwarding | :x: |
 | Capture and send all sensitive data (email, file, etc..) | :x: |
+
+
+## Configure Raspberry
+
+Follow this guide: 
+https://www.ixonae.com/configure-a-raspberry-pi-as-a-secure-wifi-access-point-with-open-wrt/
