@@ -38,3 +38,8 @@ d0raSpy, once installed on the victim router, allows you to:
 
 Follow this guide: 
 https://www.ixonae.com/configure-a-raspberry-pi-as-a-secure-wifi-access-point-with-open-wrt/
+
+## How the scripts works
+
+- The script "spy.sh" scan,get public ip, intercept traffic of the network, and send the report via Telegram 
+- The script "scan.sh" scan and get public ip, send the report via Telegram and make a autouinstall
