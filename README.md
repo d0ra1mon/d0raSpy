@@ -25,20 +25,18 @@ d0raSpy, once installed on the victim router, allows you to:
 | Exploit vulnerable devices | :x: |
 | Find all Networks | :x: |
 | DNS poisoning | :x: |
-| Add to black list a specific device | :x: |
-| Deny service to certain clients | :x: |
 | Dump Passwords | :x: |
-| Create a secondary root account | :x: |
 | Remote shell | :x: |
 | Enable port forwarding | :x: |
 
 
-## Configure Raspberry
+## Supported Devices
+The scripts were written in bash and tested on a Raspberry Pi 4B with OpenWrt, so they should work for most routers on the market. 
 
-Follow this guide: 
+To properly install and configure OpenWrt for a Raspberry follow this guide:
 https://www.ixonae.com/configure-a-raspberry-pi-as-a-secure-wifi-access-point-with-open-wrt/
 
 ## How the scripts works
 
-- The script "spy.sh" scan,get public ip, intercept traffic of the network (max 200 Mb), and send the report via Telegram 
-- The script "scan.sh" scan and get public ip, send the report via Telegram and make a autouinstall
+- The script "spy.sh" scan,get public ip, intercept traffic of the network (max 200 Mb), and send the report via Telegram. This script is permanent and should be placed inside crontab.
+- The script "scan.sh" scan and get public ip, send the report via Telegram and make a autouinstall. This script is temporary, in fact it self-removes when sending the report via Telegram.
