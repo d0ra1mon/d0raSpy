@@ -21,17 +21,16 @@ d0raSpy, once installed on the victim router, allows you to:
 | Intercept all traffic | :heavy_check_mark: |
 | Send report to attacker| :heavy_check_mark: |
 | Get system info | :heavy_check_mark: |
+| Self-removal | :heavy_check_mark: |
 | Exploit vulnerable devices | :x: |
 | Find all Networks | :x: |
 | DNS poisoning | :x: |
 | Add to black list a specific device | :x: |
 | Deny service to certain clients | :x: |
-| Self-removal | :x: |
 | Dump Passwords | :x: |
 | Create a secondary root account | :x: |
 | Remote shell | :x: |
 | Enable port forwarding | :x: |
-| Capture and send all sensitive data (email, file, etc..) | :x: |
 
 
 ## Configure Raspberry
