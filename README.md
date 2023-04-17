@@ -26,7 +26,7 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 | Find all Networks | :x: |
 | DNS poisoning | :x: |
 | Dump Passwords | :x: |
-| Remote shell | :x: |
+| Reverse shell | :x: |
 | Enable port forwarding | :x: |
 
 
