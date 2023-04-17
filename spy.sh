@@ -7,7 +7,6 @@ if [ $? -eq 0 ]; then
 	# Installing dependencies
 	echo "Install dependencies"
 	opkg update
-	opkg install bash
 	opkg install nmap
 	opkg install curl
 	opkg install tcpdump
