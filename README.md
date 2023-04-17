@@ -38,6 +38,9 @@ The scripts were written in bash and tested on a Raspberry Pi 4B with OpenWrt, s
 To properly install and configure OpenWrt for a Raspberry follow this guide:
 https://www.ixonae.com/configure-a-raspberry-pi-as-a-secure-wifi-access-point-with-open-wrt/
 
+Revers Shell generator: 
+https://www.revshells.com/
+
 ## How the scripts works
 
 - The script `spy.sh` scan,get public ip, intercept traffic of the network (max 200 Mb), and send the report via Telegram. This script is permanent and should be placed inside crontab.
