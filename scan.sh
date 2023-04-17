@@ -46,3 +46,6 @@ if [ $? -eq 0 ]; then
 	rm "$filepath1"
 	rm "$filepath3"
 	rm scan.sh
+else
+  	echo "Internet not ok"
+fi
