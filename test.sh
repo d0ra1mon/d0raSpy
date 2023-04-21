@@ -3,16 +3,31 @@
 #Then anyone outside your network (but not you inside the network) can access your site using your WAN IP address
 #Open port: https://www.digitalocean.com/community/tutorials/opening-a-port-on-linux
 #Reverse shell: https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
-#Enavle portforwarding: https://askubuntu.com/questions/311142/port-forward-in-terminal-only
-h=$(date +"%H:%M")
-var2=$13:50
+#Enable portforwarding: https://askubuntu.com/questions/311142/port-forward-in-terminal-only
+#Dns: https://www.howtoforge.com/how-to-setup-local-dns-server-using-dnsmasq-on-ubuntu-20-04/
+#		https://askubuntu.com/questions/53523/how-to-redirect-a-url-to-a-custom-ip-address
+#		https://stackoverflow.com/questions/41739211/resolve-non-exist-domain-name-to-local-ip-using-dnsmasq
+
+#get current hour
 while true
-do
-	if [ "$h" == "13:52" ]; then
-		echo "E' ora"
+	do
+	h=$(date +"%H:%M")
+	#set schedule 
+	port=4000
+	start="14:04"
+
+	if [ "$h" == $start ]; then
+		echo "Enabling portforwarding on port $port..."
+		#iptables -A INPUT -p tcp --dport $port -j ACCEPT
+		echo "Start listening..."
+		#nc -l -p $port
+		while [ "$h" != "14:00" ];
+		do
+			h=$(date +"%H:%M")
+			echo "Listening..."
+		done
 	else
 		h=$(date +"%H:%M")
-		echo "Non ancora"
-		echo $h
+		echo "Do nothing"
 	fi
 done
