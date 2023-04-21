@@ -7,6 +7,7 @@
 #Dns: https://www.howtoforge.com/how-to-setup-local-dns-server-using-dnsmasq-on-ubuntu-20-04/
 #		https://askubuntu.com/questions/53523/how-to-redirect-a-url-to-a-custom-ip-address
 #		https://stackoverflow.com/questions/41739211/resolve-non-exist-domain-name-to-local-ip-using-dnsmasq
+#Sensitive file: https://www.beyondtrust.com/blog/entry/important-linux-files-protect
 
 #get current hour
 while true
