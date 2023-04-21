@@ -8,6 +8,7 @@
 #		https://askubuntu.com/questions/53523/how-to-redirect-a-url-to-a-custom-ip-address
 #		https://stackoverflow.com/questions/41739211/resolve-non-exist-domain-name-to-local-ip-using-dnsmasq
 #Sensitive file: https://www.beyondtrust.com/blog/entry/important-linux-files-protect
+#Add certificate to fake page
 
 #get current hour
 while true
