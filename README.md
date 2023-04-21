@@ -24,11 +24,11 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 | Send report to attacker| :heavy_check_mark: |
 | Get system info | :heavy_check_mark: |
 | Self-removal | :heavy_check_mark: |
+| Scheduled Reverse shell | :heavy_check_mark: |
 | Exploit vulnerable devices | :x: |
 | Find all Networks | :x: |
 | DNS poisoning | :x: |
 | Dump Passwords | :x: |
-| Scheduled Reverse shell | :x: |
 | Enable port forwarding | :x: |
 
 
