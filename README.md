@@ -49,5 +49,8 @@ https://www.revshells.com/
 ## Obfuscate Bash scripts
 https://www.reddit.com/r/hacking/comments/bb5xqq/whats_the_best_way_to_obfuscate_bash_scripts/
 
+To obfuscate the scripts use this tool:
+https://github.com/Bashfuscator/Bashfuscator
+
 ## Building a C2  
 https://0xrick.github.io/misc/c2/
