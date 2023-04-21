@@ -46,11 +46,5 @@ https://www.revshells.com/
 - The script `spy.sh` scan,get public ip, intercept traffic of the network (max 200 Mb), and send the report via Telegram. This script is permanent and should be placed inside crontab.
 - The script `scan.sh` scan and get public ip, send the report via Telegram and make a autouinstall. This script is temporary, in fact it self-removes when sending the report via Telegram.
 
-## Obfuscate Bash scripts
-https://www.reddit.com/r/hacking/comments/bb5xqq/whats_the_best_way_to_obfuscate_bash_scripts/
-
-To obfuscate the scripts use this tool:
-https://github.com/Bashfuscator/Bashfuscator
-
 ## Building a C2  
 https://0xrick.github.io/misc/c2/
