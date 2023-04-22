@@ -23,11 +23,11 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 | Get system info | :heavy_check_mark: |
 | Self-removal | :heavy_check_mark: |
 | Scheduled Reverse shell | :heavy_check_mark: |
+| Enable port forwarding | :heavy_check_mark: |
 | Exploit vulnerable devices | :x: |
 | Find all Networks | :x: |
 | DNS poisoning | :x: |
 | Dump Passwords | :x: |
-| Enable port forwarding | :x: |
 
 
 ## Supported Devices
