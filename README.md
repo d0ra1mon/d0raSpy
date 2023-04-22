@@ -45,7 +45,7 @@ https://www.revshells.com/
 - The script `scan.sh` scan and get public ip, send the report via Telegram and make a autouinstall. This script is temporary, in fact it self-removes when sending the report via Telegram.
 
 ## Bad Ducky 
-To install the scripts using a Bad Ducky you should load the script `baducky.ino`
+To install the scripts using a Bad Ducky you should load the script `Baducky.ino`
 
 <p align="center"><img src="image/baducky.jpeg"></p> 
 
