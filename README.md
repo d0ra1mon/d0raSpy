@@ -47,7 +47,3 @@ To install the scripts using a Bad Ducky:
 Open `Arduino IDE` > `Tool` > `Board` > `Arduino Leornardo` then Upload the script `Baducky.ino`
 
 <p align="center"><img src="image/baducky.jpeg"></p> 
-
-
-## Building a C2  
-https://0xrick.github.io/misc/c2/
