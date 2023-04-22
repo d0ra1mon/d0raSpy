@@ -42,8 +42,9 @@ https://www.ixonae.com/configure-a-raspberry-pi-as-a-secure-wifi-access-point-wi
 - The script `scan.sh` scan and get public ip, send the report via Telegram and make a autouinstall. This script is temporary, in fact it self-removes when sending the report via Telegram.
 
 ## Bad Ducky 
+
+<p align="center"><img src="image/baducky.jpeg"></p> 
+
 To install the scripts using a Bad Ducky:
 
 Open `Arduino IDE` > `Tool` > `Board` > `Arduino Leornardo` then Upload the script `Baducky.ino`
-
-<p align="center"><img src="image/baducky.jpeg"></p> 
