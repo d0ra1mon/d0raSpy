@@ -26,8 +26,6 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 | Scheduled Reverse shell | :heavy_check_mark: |
 | Enable port forwarding | :heavy_check_mark: |
 | Dump Shadow Passwords | :heavy_check_mark: |
-| Exploit vulnerable devices | :x: |
-| Find all Networks | :x: |
 | DNS poisoning | :x: |
 
 
