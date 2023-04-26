@@ -14,7 +14,7 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 
 ## Features
 
-| Features | |
+| Features | |                                 
 | --------- | --------- |
 | Get Public IP | :heavy_check_mark: |
 | Find all devices | :heavy_check_mark: |
