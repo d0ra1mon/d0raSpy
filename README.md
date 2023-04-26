@@ -35,6 +35,7 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 The scripts were written in bash and tested on a Raspberry Pi 4B with OpenWrt, so they should work for most routers on the market. 
 
 If you look like to test it and install OpenWrt on Raspberry, follow this guide:
+
 https://www.ixonae.com/configure-a-raspberry-pi-as-a-secure-wifi-access-point-with-open-wrt/
 
 ## How setup the Bot Telegram
