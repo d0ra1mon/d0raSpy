@@ -2,6 +2,7 @@
 
 <p align="center">
  <img alt="Shell" src="https://img.shields.io/badge/Shell_Script-121011?style=for-the-badge&logo=gnu-bash&logoColor=white">
+ <img alt="OpenWrt" src="https://img.shields.io/badge/OpenWrt-00B5E2?style=for-the-badge&logo=OpenWrt&logoColor=white">
 </p>
 
 <p align="center"><img src="image/Compromised Router.png"></p> 
