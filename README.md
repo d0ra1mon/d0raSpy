@@ -45,12 +45,3 @@ https://www.ixonae.com/configure-a-raspberry-pi-as-a-secure-wifi-access-point-wi
 
 1. Open `Telegram` > search `BotFather` > type `/newbot` > set name `name_bot` > `get HTTP API token` 
 2. Search `RawDataBot` > Click `Start` > The Telegram bot will send a message with your account info. Scroll down and find chat. Your chat ID number is listed below, next to id
-
-
-## Bad Ducky 
-
-<p align="center"><img src="image/baducky.jpeg"></p> 
-
-To install the scripts using a Bad Ducky:
-
-Open `Arduino IDE` > `Tool` > `Board` > `Arduino Leornardo` then Upload the script `Baducky.ino`
