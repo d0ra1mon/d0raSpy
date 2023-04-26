@@ -37,11 +37,6 @@ The scripts were written in bash and tested on a Raspberry Pi 4B with OpenWrt, s
 To properly install and configure OpenWrt for a Raspberry follow this guide:
 https://www.ixonae.com/configure-a-raspberry-pi-as-a-secure-wifi-access-point-with-open-wrt/
 
-## How the scripts works
-
-- The script `spy.sh` scan,get public ip, intercept traffic of the network (max 200 Mb), and send the report via Telegram. This script is permanent and should be placed inside crontab.
-- The script `scan.sh` scan and get public ip, send the report via Telegram and make a autouinstall. This script is temporary, in fact it self-removes when sending the report via Telegram.
-
 ## How setup the Bot Telegram
 
 1. Open `Telegram` > search `BotFather` > type `/newbot` > set name `name_bot` > `get HTTP API token` 
