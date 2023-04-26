@@ -45,4 +45,4 @@ https://www.ixonae.com/configure-a-raspberry-pi-as-a-secure-wifi-access-point-wi
 
 ## Disclaimer
 
-I recommend using this device for testing, learning and fun :D
+I recommend using this scripts for testing, learning and fun :D
