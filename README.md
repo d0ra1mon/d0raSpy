@@ -27,6 +27,7 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 | Enable port forwarding | :heavy_check_mark: |
 | Dump Shadow Passwords | :heavy_check_mark: |
 | DNS poisoning | :heavy_check_mark: |
+| Session control | :heavy_check_mark: |
 
 
 ## Supported Devices
