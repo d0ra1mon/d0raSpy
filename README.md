@@ -28,7 +28,7 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 | Dump Shadow Passwords | ✔️ |
 | DNS poisoning | ✔️ |
 | Session control | ✔️ |
-| Identiify new host| ❌ |
+| Identify new host| ❌ |
 | Exploit devices | ❌ | 
 | Customized firmware | ❌ |
 
