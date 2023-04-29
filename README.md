@@ -28,7 +28,8 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 | Dump Shadow Passwords | :heavy_check_mark: |
 | DNS poisoning | :heavy_check_mark: |
 | Session control | :heavy_check_mark: |
-| Exploit devices | :x: |
+| Exploit devices | :x: | 
+| Customized firmware | :x: |
 
 
 ## Supported Devices
