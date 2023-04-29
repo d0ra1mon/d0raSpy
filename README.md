@@ -56,6 +56,7 @@ Using `rc.local`
 1. Digit `vi /etc/rc.local` > add the command to run the script inside the file before the `exit 0` line > write `/path/to/myscript.sh &` > dave and exit `:qw`
 2. Digit `chmod +x /etc/rc.local` > digit `systemctl enable rc-local.service`
 
+
 Using `crontab`
 1. Digit `chmod +x /path/to/scan.sh && chmod +x /path/to/spy.sh` > `crontab -e` > write `@reboot /path/to/scan.sh` or `@reboot /path/to/spy.sh`
 
