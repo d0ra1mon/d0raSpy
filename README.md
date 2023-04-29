@@ -46,7 +46,7 @@ https://www.ixonae.com/configure-a-raspberry-pi-as-a-secure-wifi-access-point-wi
 ## Obfuscation
 It is not possible to make a bash file completely undecipherable, since bash code is interpreted by the operating system so that it can be executed. However, it is possible to make the code more difficult to read or modify through what is known as "minification" or "obfuscation" of the code.
 
-Run `shc -f spy.sh & scan.sh` to encrypt and protect bash script 
+Run `shc -f spy.sh & shc -f scan.sh` to encrypt and protect bash script 
 
 ## Disclaimer
 
