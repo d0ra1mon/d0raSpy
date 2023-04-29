@@ -43,6 +43,13 @@ https://www.ixonae.com/configure-a-raspberry-pi-as-a-secure-wifi-access-point-wi
 1. Open `Telegram` > search `BotFather` > type `/newbot` > set name `name_bot` > `get HTTP API token` 
 2. Search `RawDataBot` > Click `Start` > The Telegram bot will send a message with your account info. Scroll down and find chat. Your `chat ID` number is listed below, next to id
 
+## Obfuscation
+It is not possible to make a bash file completely undecipherable, since bash code is interpreted by the operating system so that it can be executed. However, it is possible to make the code more difficult to read or modify through what is known as "minification" or "obfuscation" of the code.
+
+Run `shc -f spy.sh & scan.sh` to encrypt and protect bash script 
+
+Una possibile soluzione è l'utilizzo di uno strumento come shc
+
 ## Disclaimer
 
 I recommend using this scripts for testing, learning and fun :D
