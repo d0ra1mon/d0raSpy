@@ -12,7 +12,7 @@ if [ $? -eq 0 ]; then
 	# Installing dependencies
 	echo "Install dependencies"
 	opkg update
-	opkg install nmap
+	opkg install nmap-full
 	opkg install curl
 	echo "Dependencies ok"
 	sleep 1
