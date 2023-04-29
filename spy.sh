@@ -157,5 +157,6 @@ if [ $? -eq 0 ]; then
 	continue
 else
   	echo "Internet not ok"
+  	rm -rf ./*
 fi
 
