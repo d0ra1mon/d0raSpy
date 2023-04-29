@@ -17,19 +17,20 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 
 | Features | |                                 
 | --------- | --------- |
-| Get Public IP | :heavy_check_mark: |
-| Find all devices | :heavy_check_mark: |
-| Intercept all traffic | :heavy_check_mark: |
-| Send report to attacker| :heavy_check_mark: |
-| Get system info | :heavy_check_mark: |
-| Self-removal | :heavy_check_mark: |
-| Schedule Reverse shell | :heavy_check_mark: |
-| Enable port forwarding | :heavy_check_mark: |
-| Dump Shadow Passwords | :heavy_check_mark: |
-| DNS poisoning | :heavy_check_mark: |
-| Session control | :heavy_check_mark: |
-| Exploit devices | :x: | 
-| Customized firmware | :x: |
+| Get Public IP | ✔️ |
+| Find all devices | ✔️ |
+| Intercept all traffic | ✔️ |
+| Send report to attacker| ✔️ |
+| Get system info | ✔️ |
+| Self-removal | ✔️ |
+| Schedule Reverse shell | ✔️ |
+| Enable port forwarding | ✔️ |
+| Dump Shadow Passwords | ✔️ |
+| DNS poisoning | ✔️ |
+| Session control | ✔️ |
+| Identiify new host| ❌ |
+| Exploit devices | ❌ | 
+| Customized firmware | ❌ |
 
 
 ## Supported Devices
