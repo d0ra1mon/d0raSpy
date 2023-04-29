@@ -50,6 +50,9 @@ It is not possible to make a bash file completely undecipherable, since bash cod
 
 Run `shc -f spy.sh & shc -f scan.sh` to encrypt and protect bash script 
 
+## Run it
+Digit `vi /etc/rc.local` > Add the command to run the script inside the file before the `exit 0` line > write `/path/to/myscript.sh &`
+
 ## Disclaimer
 
 I recommend using this scripts for testing, learning and fun :D
