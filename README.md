@@ -48,8 +48,6 @@ It is not possible to make a bash file completely undecipherable, since bash cod
 
 Run `shc -f spy.sh & scan.sh` to encrypt and protect bash script 
 
-Una possibile soluzione è l'utilizzo di uno strumento come shc
-
 ## Disclaimer
 
 I recommend using this scripts for testing, learning and fun :D
