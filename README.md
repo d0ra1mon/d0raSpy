@@ -11,7 +11,7 @@
 Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 - Project Elsa
 - Project OutlawCountry
-- Project Extending
+- Project Cherry Blossom
 
 ## Features
 
