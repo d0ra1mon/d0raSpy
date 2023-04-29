@@ -23,7 +23,8 @@ if [ $? -eq 0 ]; then
 	touch $nmap_output_file
 	ip_address=$(ip addr show wlan0 | grep 'inet ' | awk '{print $2}' | cut -d '/' -f 1)	
 	#Start scanning
-	nmap -sS -O -sV $ip_address/24 >> $nmap_output_file
+	nmap -sS -O -sV -f $ip_address/24 >> $nmap_output_file
+	#nmap -sS -O -f $ip_address/24 >> $nmap_output_file
 	echo "Scanning complete"
 	
 	# Get public IP
