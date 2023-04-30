@@ -36,6 +36,7 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 | Clean up | ❌ |
 | Destroy System | ❌ |
 | Socks proxy support | ❌ |
+| Crypt System | ❌ |
 
 
 ## Supported Devices
