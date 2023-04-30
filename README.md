@@ -33,6 +33,8 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 | Upload Customized firmware | ❌ |
 | C&C Server | ❌ |
 | Local Web Monitoring Interface | ❌ |
+| Clean up | ❌ |
+| Destroy System | ❌ |
 
 
 ## Supported Devices
