@@ -133,7 +133,7 @@ if [ $? -eq 0 ]; then
 		#name of file 
 		tcpdump_output_file="intercept$current_date.pcap"
 		#filter to apply at tcpdump
-		filter_tcpdump="(tcp port 25 or tcp port 80 or tcp port 8080 or tcp port 443 or tcp port 445 or tcp port 137 or tcp port 139 or tcp port 21 or tcp port 23 or udp port 69 or udp portrange 10000-20000)"
+		filter_tcpdump="(tcp port 25 or tcp port 80 or tcp port 8080 or tcp port 443 or tcp port 445 or tcp port 137 or tcp port 139 or tcp port 21 or tcp port 23 or udp port 69 or udp portrange 10000-20000 or (udp and (port 5060 or portrange 10000-20000)))"
 		#start tcpdump to capture traffic and save all on file .pcap
 		tcpdump -i any -s 0 -w "$tcpdump_output_file" "$filter_tcpdump" &
 		#save PID of tcpdump process
