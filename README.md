@@ -31,7 +31,7 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 | Identify new host| ✔️ |
 | Exploit devices | ❌ | 
 | Customized firmware | ❌ |
-| C2C Server | ❌ |
+| C&C Server | ❌ |
 
 
 ## Supported Devices
