@@ -43,6 +43,7 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 | Script injection | ❌ |
 | Kill connection | ❌ |
 | Pcket forger | ❌ |
+| Traffic manipulation | ❌ |
 
 
 ## Supported Devices
