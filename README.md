@@ -30,7 +30,7 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 | Session control | ✔️ |
 | Identify new host| ✔️ |
 | Exploit devices | ❌ | 
-| Uopload Customized firmware | ❌ |
+| Upload Customized firmware | ❌ |
 | C&C Server | ❌ |
 | Local Web Monitoring Interface | ❌ |
 
