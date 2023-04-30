@@ -39,6 +39,10 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 | Crypt System | ❌ |
 | Persistent Access | ❌ |
 | Crypted Communication | ❌ |
+| Session hijack | ❌ |
+| Script injection | ❌ |
+| Kill connection | ❌ |
+| Pcket forger | ❌ |
 
 
 ## Supported Devices
