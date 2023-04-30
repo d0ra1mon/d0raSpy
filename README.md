@@ -38,6 +38,7 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 | Socks proxy support | ❌ |
 | Crypt System | ❌ |
 | Persistent Access | ❌ |
+| Crypted Communication | ❌ |
 
 
 ## Supported Devices
