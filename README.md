@@ -37,6 +37,7 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 | Destroy System | ❌ |
 | Socks proxy support | ❌ |
 | Crypt System | ❌ |
+| Persistent Access | ❌ |
 
 
 ## Supported Devices
