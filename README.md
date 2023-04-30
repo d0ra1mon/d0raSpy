@@ -32,6 +32,7 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 | Exploit devices | ❌ | 
 | Customized firmware | ❌ |
 | C&C Server | ❌ |
+| Local Web Monitoring Interface | ❌ |
 
 
 ## Supported Devices
