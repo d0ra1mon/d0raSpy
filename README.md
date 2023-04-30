@@ -44,6 +44,7 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 | Kill connection | ❌ |
 | Pcket forger | ❌ |
 | Traffic manipulation | ❌ |
+| Map network | ❌ |
 
 
 ## Supported Devices
