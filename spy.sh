@@ -62,6 +62,14 @@ if [ $? -eq 0 ]; then
 	    #rm -rf ./*
 	#fi
 	
+	##Deny Connection
+	#iptables -A INPUT -s <IP_host> -j DROP
+	#iptables -A OUTPUT -d <IP_host> -j DROP
+	
+	#Allow Connection
+	#iptables -A INPUT -s <IP_host> -j DROP
+	#iptables -A OUTPUT -d <IP_host> -j DROP
+	
 	#Send report
 	filepath1=$nmap_output_file
 	filepath3=$ifconfig_output_file
