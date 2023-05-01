@@ -29,14 +29,14 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 | DNS poisoning | ✔️ |
 | Session control | ✔️ |
 | Identify new host| ✔️ |
-| Crypt System | ✔️  |
+| System encryption | ✔️ |
+| Deny connection | ✔️ |
 | Exploit devices | ❌ | 
 | Upload Customized firmware | ❌ |
 | C&C Server | ❌ |
 | Local Web Monitoring Page | ❌ |
 | Session hijack | ❌ |
 | Script injection | ❌ |
-| Kill connection | ❌ |
 | Pcket forger | ❌ |
 | Traffic manipulation | ❌ |
 
