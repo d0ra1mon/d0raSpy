@@ -35,6 +35,7 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 | Script injection | ❌ |
 | Packet forger | ❌ |
 | Traffic manipulation | ❌ |
+| Clear System Log | ❌ |
 
 
 ## Supported Devices
