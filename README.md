@@ -34,7 +34,7 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 | Upload customized firmware | ❌ |
 | Session hijack | ❌ |
 | Script injection | ❌ |
-| Pcket forger | ❌ |
+| Packet forger | ❌ |
 | Traffic manipulation | ❌ |
 
 
