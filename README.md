@@ -31,10 +31,7 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 | Identify new host| ✔️ |
 | System encryption | ✔️ |
 | Deny connection | ✔️ |
-| Exploit devices | ❌ | 
 | Upload customized firmware | ❌ |
-| C&C server | ❌ |
-| Local web monitoring page | ❌ |
 | Session hijack | ❌ |
 | Script injection | ❌ |
 | Pcket forger | ❌ |
