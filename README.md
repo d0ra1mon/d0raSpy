@@ -17,7 +17,7 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 
 | Features | |                                 
 | --------- | --------- |
-| Get Public IP | ✔️ |
+| Get public ip | ✔️ |
 | Find all devices | ✔️ |
 | Intercept all traffic | ✔️ |
 | Send report to attacker| ✔️ |
@@ -32,9 +32,9 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 | System encryption | ✔️ |
 | Deny connection | ✔️ |
 | Exploit devices | ❌ | 
-| Upload Customized firmware | ❌ |
-| C&C Server | ❌ |
-| Local Web Monitoring Page | ❌ |
+| Upload customized firmware | ❌ |
+| C&C server | ❌ |
+| Local web monitoring page | ❌ |
 | Session hijack | ❌ |
 | Script injection | ❌ |
 | Pcket forger | ❌ |
