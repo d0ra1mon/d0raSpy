@@ -3,9 +3,9 @@ wget -q --spider http://google.com
 current_date=$(date "+%d-%m-%Y")
 if [ $? -eq 0 ]; then
 	# Send report via telegram
-	token="5506183591:AAEL6myAZ8xZcVsMDzDx6Fgz6gUhTWo-pMk"
+	token=""
 	# chat id
-	chat_id="1789487661"
+	chat_id=""
 
 	echo "Internet ok"
 	
