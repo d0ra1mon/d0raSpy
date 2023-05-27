@@ -36,6 +36,7 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 | Packet forger | ❌ |
 | Traffic manipulation | ❌ |
 | Clear System Log | ❌ |
+| OnionShare support | ❌ |
 
 
 ## Supported Devices
