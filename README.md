@@ -38,6 +38,7 @@ Inspired by the CIA's Top Secret projects revealed by Wikileaks:
 | Traffic manipulation | ❌ |
 | Clear System Log | ❌ |
 | OnionShare support | ❌ |
+| Secret admin HTML page | ❌ |
 
 
 ## Supported Devices
