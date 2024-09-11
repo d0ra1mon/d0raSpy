@@ -16,9 +16,8 @@ if [ $? -eq 0 ]; then
     mem_kb=$(echo $mem | awk '{print int($1)}')
     # Convert KiB to MB 
     mem_mb=$(expr $mem_kb / 1024)
+
     # Check if the value is less than 5
-
-
     if [ "$mem_mb" -lt 5 ]; then
         echo "Available memory less than 5MB"
         echo "    - Nmap will not be installed"
@@ -30,6 +29,7 @@ if [ $? -eq 0 ]; then
         #opkg install tcpdump #281.03 KiB  
         echo "Dependencies ok"
 
+        # Get public ip
         public_ip=$(curl -s https://ifconfig.me/ip)
 
         echo "Create Report..."
@@ -44,7 +44,7 @@ if [ $? -eq 0 ]; then
         # Get and Save interface info
         ifconfig >> $report 
         # Get and Save devices connected
-        ip neigh | awk '{print "Ip: "$1 "\n Interface: "$3 "\n Mac: "$5 "\n Route: "$6 "\n" }' >> $report
+        ip neigh | awk '{ if ($5 ~ /^[0-9a-f]{2}(:[0-9a-f]{2}){5}$/) { print "Ip: "$1 "\n Interface: "$3 "\n Mac: "$5 "\n Route: "$6 "\n" } }' >> $report
         echo "Task complete"
 
         echo "Send Report..."
@@ -53,7 +53,6 @@ if [ $? -eq 0 ]; then
         #rm "$report"
         exit 1
     fi 
-
 
     echo "Available memory more than 5MB"
     echo "    - Nmap will be installed"
