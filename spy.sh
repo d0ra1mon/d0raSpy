@@ -1,4 +1,4 @@
-t#!/bin/ash
+#!/bin/ash
 #echo $SHELL to see what shell it's use
 current_date=$(date "+%d-%m-%Y")
 wget -q --spider http://google.com
